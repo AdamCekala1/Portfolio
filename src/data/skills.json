@@ -1,0 +1,22 @@
+{skills:[{
+            "name":"css3",
+            "descrpt":"i know it"
+        },{
+            "name":"html5",
+            "descrpt":"i know it"
+        },{
+            "name":"django",
+            "descrpt":"i know it"
+        },{
+            "name":"react",
+            "descrpt":"i know it"
+        },{
+            "name":"redux",
+            "descrpt":"i know it"
+        },{
+            "name":"angular",
+            "descrpt":"i know it"
+        }],
+"no_skills":"no"
+  
+}

@@ -1,0 +1,12 @@
+.btn{
+    cursor: pointer;
+    background-color:lightblue;
+}
+.selected{
+    background-color:green;
+    cursor: not-allowed;
+    
+}
+.equal{
+    margin:0 30px;
+}
