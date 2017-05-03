@@ -5,8 +5,9 @@ const Footer = () => {
     return(
         <footer>
             <div className='social'>
-               <Link to='/about' activeClassName='active' className="menu-item"> <i className="fa fa-facebook"></i></Link>
-               <Link to='/about' activeClassName='active' className="menu-item"> <i className="fa fa-twitter"></i></Link>
+               <a href="https://www.facebook.com/cekala1" activeClassName='active' className="menu-item"> <i className="fa fa-facebook"></i></a>
+               <a href='https://twitter.com/Neratin_Ceka' activeClassName='active' className="menu-item"> <i className="fa fa-twitter"></i></a>
+                <a href="https://github.com/AdamCekala1" activeClassName='active' className="menu-item"> <i className="fa fa-github"></i></a>
     
 
             </div>

@@ -7,9 +7,9 @@ class Header extends React.Component{
     }
     render(){
         return(
-            <nav>
+            
                 <Menu />
-            </nav>
+           
         )
     }
     

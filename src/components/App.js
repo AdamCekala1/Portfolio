@@ -11,12 +11,12 @@ class App extends React.Component{
                 
                 <Header/>
                 
-                <div className='homePage'>
-                    <div className='container'>
+                <div className='homePage' id="homePage">
+ 
                         <div className='content'>
                             {this.props.children}
                         </div>
-                    </div>
+                   
                 </div>
             <Footer/>
                

@@ -1,57 +1,117 @@
 import React from 'react';
 import Skill from './Skill';
+import LoadingPage from '../LoadingPage';
 import {connect} from 'react-redux';
 import * as actionCreators from '../../actions/skillsActions';
 import { bindActionCreators } from 'redux'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'; 
+
 
 class Skills extends React.Component{
     constructor() {
         super();
-        this.state = {selectedItem: 1,
+        this.activeStyle = {
+                    
+                     position:"fixed",
+                     top:"0",
+                     left:0,
+                     top:'50%',
+                     left:'50%',
+                     padding:'10vh 10vw',
+                     width:'90vw',
+                     height:'90vh',
+                     transform:'translate(-50%,-50%)',
+                     zIndex:"99999",
+            overflowY:"auto",
+                     background:"rgba(0,0,0,0.9)"
+                    };
+        this.state = {selectedItem: 99,
+                      showed:true,
                      };
-        this.activeSkillStyle = {
-                width:"90vw",
-                height:"90vh",
-                position:"fixed",
-                top:"5vh",
-                left:"5vw",
-                zIndex:"9999",
-                verticalAlign : "middle",
-            };
+       
         
     }
     
     activeSkill(e){
-        this.props.actions.showSkillHandler(e,this.activeSkillStyle)
-        this.setState({ selectedItem: e.currentTarget.id });
-    }
+       
+        this.setState({ selectedItem: e.currentTarget.id,
+                       showed:true});
+    };
     
+    
+    
+    
+    deActiveSkill=(e)=>{
+        this.setState(()=>{
+            return{showed:false}}
+        );
+    };
+
+
+
+
     closeSkillIcon(i){
-        if (this.props.showed==true){
+        if (this.state.selectedItem!==99 && this.state.showed==true){
             return(
-                <i onClick={(e)=>this.props.actions.closeSkillHandler(e)} className="fa fa-times" aria-hidden="true"></i>
+                <i onClick={(e)=>this.deActiveSkill(e)}  className="skillIconClose fa fa-times" aria-hidden="true"></i>
             );
-        }
-    }
+        };
+    };
+   
     handleShowSkill=(skill,i)=>{
         return(
-            <div key={skill.id}  className='skill col-xs-12 col-md-6 col-lg-4'>
-                {this.closeSkillIcon(i)}
-                
-                <div id={i}  
-                    onClick={(e) => this.activeSkill(e)} 
-                    style={this.state.selectedItem==i ?this.props.skillsStyles:null} className="content">
-                    
-                    <Skill  skill={skill} />
+            <div    
+                className='skill col-xs-12 col-md-4 col-lg-3'
+                style={this.state.selectedItem==i && this.state.showed ?
+                    this.activeStyle:{}}
+                      key={skill.id}
+                >
+            <div 
+                id={i}
+                onClick={(e) => this.activeSkill(e)} 
+                 >
+                <div  className="content">
+                    <Skill 
+                        i={i} 
+                        selectedItem={this.state.selectedItem}
+                        showed={this.state.showed}
+                        skill={skill} />
                 </div>
+            </div>
             </div>
         );
     }
+    skillLoading=()=>{
+        if(this.props.skillsLoading === false){
+            return(
+                <div key="2">
+                    {this.props.items.map(this.handleShowSkill)}
+                </div>
+                )
+        }else{
+            return(
+                <LoadingPage key="1"/>
+            );
+        }
+            
+      
+        
+    }
+ 
     render(){
-
         return(
-            <div className='row is-flex'>
-                {this.props.items.map(this.handleShowSkill)} </div>
+            <div className='skills row is-flex'>
+                {this.closeSkillIcon()}
+                <ReactCSSTransitionGroup
+                          transitionName="animation"
+                          transitionEnterTimeout={500}
+                          transitionLeaveTimeout={300}
+                          transitionAppear={true}
+                          transitionAppearTimeout={1000}
+                            >
+                {this.skillLoading()}
+                </ReactCSSTransitionGroup>
+             </div>
         );
     }
 }
@@ -65,9 +125,9 @@ class Skills extends React.Component{
 function mapStateToProps(state,ownProps){
 
     return{
+        skillsLoading:state.skillsLoading,
         items: state.skills,
-        showed:state.showed,
-        skillsStyles:state.skillsStyles
+      
     };
 }
 

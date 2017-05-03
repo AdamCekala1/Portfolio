@@ -12,10 +12,10 @@ const Menu = (props) =>{
             </label>
             <div className='box'>
                     <div className="content">
-                        <IndexLink  to='/' className="menu-item"> <i className="fa fa fa-home"></i><h4>home</h4> </IndexLink>
-                        <Link to='/about' className="menu-item"> <i className="fa fa-user"></i><h4>About me</h4> </Link>
-                        <Link to='/contact' className="menu-item"> <i className="fa fa-phone"></i><h4>contact</h4> </Link>
-                        <Link to='/skills' className="menu-item"> <i className="fa fa-book"></i><h4>Technologie</h4> </Link>
+                        <IndexLink  to='/' activeClassName="activeLink" className="menu-item"> <i className="fa fa fa-home"></i><h4>Home</h4> </IndexLink>
+                        <Link to='about' activeClassName="activeLink" className="menu-item"> <i className="fa fa-user"></i><h4>O mnie</h4> </Link>
+                        <Link to='/contact' activeClassName="activeLink" className="menu-item"> <i className="fa fa-phone"></i><h4>Kontakt</h4> </Link>
+                        <Link to='/skills' activeClassName="activeLink" className="menu-item"> <i className="fa fa-book"></i><h4>Technologie</h4> </Link>
                         
                         <div className='clearfix'></div>
                     </div>

@@ -48,22 +48,30 @@ export function closeSkillHandler(e){
     }
 }
 
+export function itemsIsLoadingSkills(bool) {
+    return {
+        type: 'ITEMS_IS_LOADING_SKILLS',
+        isLoading: bool
+    };
+}
+
 
 export function itemsFetchData(url,name) {
     return (dispatch) => {
-//        dispatch(itemsIsLoading(true));
+        dispatch(itemsIsLoadingSkills(true));
         fetch(url)
             .then((response) =>
                   {
-//                dispatch(itemsIsLoading(false));
-//                console.log(response)
                 return response;
                 }
-                  ,(error)=>{console.log('error:'+error)})
+                  ,(error)=>{
+            console.log('error:'+error)})
             .then((response) => 
                   response.json())
             .then((items) =>
-                  (dispatch(itemsFetchDataSuccess(items)))
+                  {dispatch(itemsFetchDataSuccess(items));
+                  dispatch(itemsIsLoadingSkills(false));
+                  }
                   ,(error)=>{console.log('error:'+error)});
 
     };

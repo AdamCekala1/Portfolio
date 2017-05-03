@@ -1,12 +1,45 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import { bindActionCreators } from 'redux'
+import LoadingPage from '../LoadingPage';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'; 
 
 class About extends React.Component{
+    
+    displayDescription=()=>{
+        if(this.props.itemsIsLoadingAboutMe === false){
+            return(
+                <p key="1">
+                        {this.props.aboutMe[0].description}
+                    </p>
+            );
+        }else{
+            return(
+             
+                    <LoadingPage key="2"/>
+                    
+                
+                
+            );
+        }
+    }
     render(){
         return(
-            <div className='container'>
-                <h1>www.strona.pl</h1>
-                <p>Curabitur malesuada accumsan eros at condimentum. Quisque a hendrerit lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut a malesuada augue. Vivamus cursus luctus nibh, nec mollis odio hendrerit et. In convallis, enim dictum ultrices aliquam, elit dolor euismod risus, vel accumsan lacus libero a quam. Nulla vitae augue efficitur, convallis felis sed, imperdiet erat. Duis et ligula vel massa commodo vestibulum. Praesent ut auctor orci.</p>
-                <img src="https://uinames.com/api/photos/male/21.jpg" alt="profile" className="img-circle"/>
+            <div className='aboutMe'>
+                <div className='content'>
+                    <h1>O mnie</h1>
+                    <h3>kilka slow?</h3>
+                       <ReactCSSTransitionGroup
+                          transitionName="animation"
+                          transitionEnterTimeout={500}
+                          transitionLeaveTimeout={300}
+                          transitionAppear={true}
+                          transitionAppearTimeout={1000}
+                            >
+                    {this.displayDescription()}
+                    </ReactCSSTransitionGroup>
+
+                </div>
             </div>
         );
             
@@ -14,4 +47,14 @@ class About extends React.Component{
     }
 }
 
-export default About;
+
+function mapStateToProps(state,ownProps){
+
+    return{
+        itemsIsLoadingAboutMe:state.itemsIsLoadingAboutMe,
+        aboutMe: state.aboutMe,
+      
+    };
+}
+
+export default connect(mapStateToProps)(About);

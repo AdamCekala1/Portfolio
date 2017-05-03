@@ -1,12 +1,15 @@
 import React from 'react';
 
-const Skill=({skill})=>{
+const Skill=(props)=>{
+//    console.log(props.skill);
     return(
         
-            <div>
+            <div >
                 
-                <h2>{skill.name}</h2>
-                <h3>{skill.email}</h3>
+                <img src={`img/${props.skill.icon}`}/>
+                <h3>{props.skill.technology}</h3>
+                <p className="skillDescription clearfix" 
+                    style={props.selectedItem==props.i && props.showed ?{}:{display:"none"}}> {props.skill.description} </p>
             </div>
  
     );
