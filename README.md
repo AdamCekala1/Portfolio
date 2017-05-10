@@ -8,4 +8,4 @@ oraz użyciu strony http://myjson.com/ przechowującej API
 
 Strona do wglądu na http://adamcekala.pl/
 oraz na github pages:
-https://adamcekala1.github.io/Portfolio/#/
+https://adamcekala1.github.io/PortfolioWebPage/
