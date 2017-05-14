@@ -12,9 +12,9 @@ class Contact extends React.Component{
         for (let name in this.props.contactData[0]){
             names.push(name);
         }
-        return names.map((value)=>{
+        return names.map((value,i)=>{
             return(
-                <li className="content row">
+                <li key={i} className="content row">
                     <h3 className="col-xs-12 col-md-2">
                         {value}:
                     </h3>

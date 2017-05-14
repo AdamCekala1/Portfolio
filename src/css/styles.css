@@ -154,7 +154,7 @@ nav {
     position: absolute;
     height: 75vh;
     overflow-y: auto;
-    top: 0;
+    top: -2px;
     left: -150vw;
     width: 100vw;
     margin-top: 25vh;
@@ -541,3 +541,5 @@ footer {
 .animation-appear.animation-appear-active {
   opacity: 1;
   transition: opacity .5s ease-in; }
+
+/*# sourceMappingURL=styles.css.map */
