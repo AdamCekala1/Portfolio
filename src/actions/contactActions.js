@@ -19,7 +19,14 @@ export function itemsIsLoadingContact(bool) {
 export function itemsFetchDataContact(url,name) {
     return (dispatch) => {
         dispatch(itemsIsLoadingContact(true));
-        fetch(url)
+        
+        
+        var proxyUrl = 'https://cors-anywhere.herokuapp.com/',
+            targetUrl = url
+
+
+
+        fetch(proxyUrl + targetUrl)
             .then((response) =>
                   {
                 

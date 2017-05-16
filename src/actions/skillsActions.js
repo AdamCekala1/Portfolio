@@ -56,18 +56,30 @@ export function itemsIsLoadingSkills(bool) {
 }
 
 
-export function itemsFetchData(url,name) {
+
+
+
+
+export function itemsFetchData(url) {
     return (dispatch) => {
+
         dispatch(itemsIsLoadingSkills(true));
-        fetch(url)
+        
+        
+        var proxyUrl = 'https://cors-anywhere.herokuapp.com/',
+            targetUrl = url
+
+
+
+        fetch(proxyUrl + targetUrl)
             .then((response) =>
                   {
                 return response;
                 }
                   ,(error)=>{
             console.log('error:'+error)})
-            .then((response) => 
-                  response.json())
+            .then((response) => {
+                  return response.json()})
             .then((items) =>
                   {dispatch(itemsFetchDataSuccess(items));
                   dispatch(itemsIsLoadingSkills(false));
