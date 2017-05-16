@@ -19,7 +19,12 @@ export function itemsIsLoadingAboutMe(bool) {
 export function itemsFetchDataAboutMe(url,name) {
     return (dispatch) => {
         dispatch(itemsIsLoadingAboutMe(true));
-        fetch(url)
+        var proxyUrl = 'https://cors-anywhere.herokuapp.com/',
+            targetUrl = url
+
+
+
+        fetch(proxyUrl + targetUrl)
             .then((response) =>
                   {
                 

@@ -9,10 +9,9 @@ import {itemsFetchDataAboutMe} from './actions/aboutMeActions';
 import {itemsFetchDataContact} from './actions/contactActions';
 
 const store = configStore();
-//store.dispatch(itemsFetchData("https://jsonplaceholder.typicode.com/users"))
-store.dispatch(itemsFetchData("https://api.myjson.com/bins/idgu9"))
-store.dispatch(itemsFetchDataAboutMe("https://api.myjson.com/bins/hpw2p"))
-store.dispatch(itemsFetchDataContact("https://api.myjson.com/bins/16s8n5"))
+store.dispatch(itemsFetchData("https://ac-api.herokuapp.com/API/knowledge/?format=json"))
+store.dispatch(itemsFetchDataAboutMe("https://ac-api.herokuapp.com/API/?format=json"))
+store.dispatch(itemsFetchDataContact("https://ac-api.herokuapp.com/API/contact/?format=json"))
 
 render(
     <Provider store={store}>
