@@ -129,7 +129,7 @@ p {
     left: -5%;
     width: 110%;
     height: 110%;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../img/home.jpg");
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1)), url("../img/home.jpg");
     background-size: cover;
     background-position: center;
     filter: blur(3px); }
@@ -271,21 +271,21 @@ footer {
   height: 50px;
   width: 100vw;
   margin-top: -50px;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.6);
   position: relative;
   z-index: 10; }
   footer .social {
     width: 100vw;
     position: relative; }
     footer .social a {
-      color: #2c3e50;
+      color: #fff;
       width: 33.33333%;
       height: 50px;
       display: inline-block;
       transition: all 0.3s ease-out; }
       footer .social a:hover {
         background: rgba(0, 0, 0, 0.8);
-        color: #597ea2; }
+        color: #aabdd1; }
     @media (min-width: 992px) {
       footer .social {
         width: 33.33333vw; } }
