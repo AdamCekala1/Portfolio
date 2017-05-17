@@ -5,10 +5,13 @@ class Header extends React.Component{
     constructor(){
         super();
     }
+    closeMenu(){
+        document.getElementById("menu-open").checked = false;    
+    }
     render(){
         return(
             
-                <Menu />
+                <Menu closeMenu={this.closeMenu}/>
            
         )
     }

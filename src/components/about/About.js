@@ -28,7 +28,7 @@ class About extends React.Component{
             <div className='aboutMe'>
                 <div className='content'>
                     <h1>O mnie</h1>
-                    <h3>kilka slow?</h3>
+                    <h3>kilka słów?</h3>
                        <ReactCSSTransitionGroup
                           transitionName="animation"
                           transitionEnterTimeout={500}
